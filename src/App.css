@@ -1,0 +1,172 @@
+.app {
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  background-color: var(--color-cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fabric texture canvas */
+.fabric-texture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 4vh, 3rem) clamp(1.25rem, 4vw, 2rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* Main content */
+.content {
+  max-width: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+/* Wordmark */
+.wordmark {
+  margin-bottom: clamp(2rem, 5vh, 3rem);
+}
+
+.title {
+  font-family: var(--font-wordmark);
+  font-weight: normal;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 1vh, 0.5rem);
+}
+
+.title-small {
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  letter-spacing: -0.05em;
+  font-weight: normal;
+  opacity: 0.6;
+  /* Letterpress effect - light from top, shadow below */
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8),
+    0 -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.title-large {
+  font-size: clamp(4rem, 13vw, 9rem);
+  font-weight: normal;
+  letter-spacing: -0.05em;
+  /* Letterpress deboss - reduced 25% */
+  text-shadow:
+    0 1.5px 0.75px rgba(255, 255, 255, 0.675),
+    0 2.25px 3px rgba(0, 0, 0, 0.06),
+    0 -0.75px 1.5px rgba(0, 0, 0, 0.15);
+}
+
+/* Tagline with bars */
+.tagline-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin: clamp(2rem, 4vh, 3rem) auto;
+  max-width: 500px;
+}
+
+.tagline-bar {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-black);
+  opacity: 0.3;
+}
+
+.tagline {
+  font-family: var(--font-serif-body);
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  color: var(--color-black);
+  margin: 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 400;
+  /* Subtle letterpress on tagline */
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.3),
+    0 -1px 1px rgba(0, 0, 0, 0.06);
+}
+
+/* Description */
+.description {
+  max-width: 650px;
+  margin: clamp(2.5rem, 5vh, 4rem) auto 0;
+  padding: 0;
+}
+
+.description p {
+  font-family: var(--font-serif-body);
+  font-size: clamp(1rem, 2vw, 1.175rem);
+  line-height: 1.75;
+  color: var(--color-black);
+  margin: 0;
+  /* Very subtle letterpress for body text - like ink on fine paper */
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25),
+    0 -1px 0.5px rgba(0, 0, 0, 0.04);
+}
+
+/* Offices */
+.offices {
+  margin-top: clamp(2.5rem, 5vh, 3.5rem);
+}
+
+.offices-list {
+  font-family: var(--font-serif-body);
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  color: var(--color-gray);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* Copyright */
+.copyright {
+  margin-top: clamp(1.5rem, 3vh, 2rem);
+}
+
+.copyright p {
+  font-family: var(--font-serif-body);
+  font-size: clamp(0.7rem, 1.3vw, 0.85rem);
+  color: var(--color-gray);
+  letter-spacing: 0.02em;
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tagline-container {
+    gap: clamp(0.75rem, 2vw, 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .tagline {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .tagline-bar {
+    min-width: 20px;
+  }
+}
